@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
     private int highScore = 0;
     public Text scoreText;
     public Text highScoreText;
-
+    public Image gameOverImage;
     private void Start()
     {
         ResetScore();
@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     {
         scoreText.text = "";
         highScoreText.text = "";
+        gameOverImage.gameObject.SetActive(false);
     }
     public void SetScore(int currentScore)
     {
@@ -27,5 +28,6 @@ public class UIManager : MonoBehaviour
         }
         scoreText.text = "Score: " + currentScore.ToString();
         highScoreText.text = "High Score: " + highScore.ToString();
+        gameOverImage.gameObject.SetActive(true);
     }
 }

@@ -52,8 +52,12 @@ public class LevelManager : MonoBehaviour
         if (gameStat == gameStats.lose)
         {
             backgroundAnimation.animationSpeed = 0;
-            StopCoroutine(routine);
-            routine = null;
+            if(routine != null)
+            {
+                StopCoroutine(routine);
+                routine = null;
+            }
+            levelIndex = 0;
             ObjectTweener.StopTweens();
         }
         
@@ -80,11 +84,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void StartLevel(int levelIndex=0)
+    void StartLevel(int levelIndex=0, bool loadNextLevel=false)
     {
         var currentLevel = levels.levelsList[levelIndex];
-        backgroundAnimation.animationSpeed = 0.1f * currentLevel.levelSpeed;
-        if(routine == null)
+        backgroundAnimation.animationSpeed = Mathf.Lerp(backgroundAnimation.animationSpeed, 0.1f * currentLevel.levelSpeed, 0.5f);
+        if(routine == null || loadNextLevel==true)
         {
             routine = StartCoroutine(placeObstacles(currentLevel));
         }
@@ -136,7 +140,7 @@ public class LevelManager : MonoBehaviour
             levelIndex++;
         }
 
-        StartLevel(levelIndex);
+        StartLevel(levelIndex, true);
     }
 
 }
