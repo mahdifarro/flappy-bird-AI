@@ -11,9 +11,12 @@ public class PlayerManager : MonoBehaviour
     private Vector3 playerDefaultPose;
     [SerializeField]
     private float velocity = 1;
+    
+    private bool isGameOn = true;
 
     private Rigidbody2D player_rb;
-    private bool isGameOn=true;
+    private Animator player_animator;
+
 
     private int score = 0;
     private void OnEnable()
@@ -45,6 +48,7 @@ public class PlayerManager : MonoBehaviour
     {
         player_rb = player.GetComponent<Rigidbody2D>();
         playerDefaultPose = player.transform.position;
+        player_animator = player.GetComponentInChildren<Animator>();
     }
 
     void ToggleGame(gameStats gameStat)
@@ -82,6 +86,7 @@ public class PlayerManager : MonoBehaviour
     void Jump()
     {
         player_rb.velocity = Vector2.up*velocity;
+        player_animator.SetTrigger("Jump");
     }
 
     void GiveScore(bool reset = false)
