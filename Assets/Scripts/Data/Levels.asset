@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelsList:
   - levelSpeed: 1
-    obstaclesCount: 20
+    obstaclesCount: 2
     obstaclesOffset: 1
     restTime: 3
     changeDirecrionChance: 0.1
@@ -24,7 +24,7 @@ MonoBehaviour:
     restTime: 4
     changeDirecrionChance: 0.15
   - levelSpeed: 2
-    obstaclesCount: 30
+    obstaclesCount: 2
     obstaclesOffset: 0.5
     restTime: 5
     changeDirecrionChance: 0.3
