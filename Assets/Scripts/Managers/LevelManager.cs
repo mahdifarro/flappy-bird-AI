@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public GameObject bird;
+
     public Transform finishPoint;
     public Transform upPoint;
     public Transform downPoint;
@@ -17,50 +19,57 @@ public class LevelManager : MonoBehaviour
 
     public int minObstaclePoolSize = 15;
     public int levelIndex = 0;
+    public float levelSpeed = 0;
     public float changeStep = 0.5f;
 
     private List<Transform> obstaclesList=new List<Transform>();
-    int obstaclessPassed = 0;
+
+    private Rigidbody2D bird_rb;
+    private Vector3 birdDefaultPlace;
+    private int obstaclessPassed = 0;
     Coroutine routine=null;
 
-    public static LevelManager Instance;
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
-    }
-    private void Start()
-    {
-        StartGame();
+        birdDefaultPlace = bird.transform.position;
+        bird_rb=bird.GetComponent<Rigidbody2D>();
     }
 
+    /// <summary>
+    /// Starts the game 
+    /// </summary>
     public void StartGame()
     {
-        CreateObstaclesPool();
+
         obstaclessPassed = 0;
+        bird_rb.gravityScale = 2;
+        bird_rb.velocity = Vector2.zero;
+        levelSpeed = 0;
+
+        CreateObstaclesPool();
         StartLevel();
     }
 
-    public void ToggleLevel(gameStats gameStat)
+    /// <summary>
+    /// Stops the game (Must be called when the bird lost)
+    /// </summary>
+    public void StopGame()
     {
-        if (gameStat == gameStats.lose)
+        bird.transform.position = birdDefaultPlace;
+        bird.transform.GetChild(0).position=birdDefaultPlace;
+
+        bird_rb.gravityScale = 0;
+        bird_rb.velocity = Vector2.zero;
+
+        backgroundAnimation.animationSpeed = 0;
+        if (routine != null)
         {
-            backgroundAnimation.animationSpeed = 0;
-            if(routine != null)
-            {
-                StopCoroutine(routine);
-                routine = null;
-            }
-            levelIndex = 0;
-            ObjectTweener.StopTweens();
+            StopCoroutine(routine);
+            routine = null;
         }
-        
+        levelIndex = 0;
+        ObjectTweener.StopTweens();
+
     }
 
     private void CreateObstaclesPool()
@@ -84,9 +93,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void StartLevel(int levelIndex=0, bool loadNextLevel=false)
+    private void StartLevel(int levelIndex=0, bool loadNextLevel=false)
     {
         var currentLevel = levels.levelsList[levelIndex];
+        levelSpeed = currentLevel.levelSpeed;
         backgroundAnimation.animationSpeed = Mathf.Lerp(backgroundAnimation.animationSpeed, 0.1f * currentLevel.levelSpeed, 0.5f);
         if(routine == null || loadNextLevel==true)
         {
@@ -94,7 +104,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    IEnumerator placeObstacles(Levels.Level currentLevel)
+    private IEnumerator placeObstacles(Levels.Level currentLevel)
     {
         float speed = currentLevel.levelSpeed;
         float offset = currentLevel.obstaclesOffset;

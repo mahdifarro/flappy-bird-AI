@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     private Vector3 playerDefaultPose;
     [SerializeField]
     private float velocity = 1;
-    
+
     private bool isGameOn = true;
 
     private Rigidbody2D player_rb;
@@ -39,9 +39,10 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isGameOn) {
+        if (isGameOn)
+        {
             DetectInput();
-        }        
+        }
     }
 
     void AssignProperties()
@@ -56,9 +57,9 @@ public class PlayerManager : MonoBehaviour
         if (gameStat == gameStats.start)
         {
             isGameOn = true;
-            player.transform.position= playerDefaultPose;
+            player.transform.position = playerDefaultPose;
             player_rb.gravityScale = 2;
-            LevelManager.Instance.StartGame();
+            //LevelManager.Instance.StartGame();
         }
         else
         {
@@ -71,7 +72,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (gameStat == gameStats.lose)
         {
-            LevelManager.Instance.ToggleLevel(gameStat);
+            //LevelManager.Instance.ToggleLevel(gameStat);
             player_rb.gravityScale = 0;
         }
     }
@@ -85,7 +86,7 @@ public class PlayerManager : MonoBehaviour
     }
     void Jump()
     {
-        player_rb.velocity = Vector2.up*velocity;
+        player_rb.velocity = Vector2.up * velocity;
         player_animator.SetTrigger("Jump");
     }
 
