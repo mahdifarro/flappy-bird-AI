@@ -1,0 +1,65 @@
+{
+    "FlappyBird": {
+        "checkpoints": [
+            {
+                "steps": 6499886,
+                "file_path": "results\\hb_01\\FlappyBird\\FlappyBird-6499886.onnx",
+                "reward": 7.38797770171869,
+                "creation_time": 1660423636.5519407,
+                "auxillary_file_paths": [
+                    "results\\hb_01\\FlappyBird\\FlappyBird-6499886.pt"
+                ]
+            },
+            {
+                "steps": 6579688,
+                "file_path": "results\\hb_01\\FlappyBird\\FlappyBird-6579688.onnx",
+                "reward": 3.4499997973442076,
+                "creation_time": 1660424194.2858322,
+                "auxillary_file_paths": [
+                    "results\\hb_01\\FlappyBird\\FlappyBird-6579688.pt"
+                ]
+            },
+            {
+                "steps": 6591768,
+                "file_path": "results\\hb_01\\FlappyBird\\FlappyBird-6591768.onnx",
+                "reward": 9.44085983307131,
+                "creation_time": 1660460860.3779616,
+                "auxillary_file_paths": [
+                    "results\\hb_01\\FlappyBird\\FlappyBird-6591768.pt"
+                ]
+            },
+            {
+                "steps": 6935212,
+                "file_path": "results\\hb_01\\FlappyBird\\FlappyBird-6935212.onnx",
+                "reward": -1.2166666197776794,
+                "creation_time": 1660469255.1141756,
+                "auxillary_file_paths": [
+                    "results\\hb_01\\FlappyBird\\FlappyBird-6935212.pt"
+                ]
+            },
+            {
+                "steps": 6960313,
+                "file_path": "results\\hb_01\\FlappyBird\\FlappyBird-6960313.onnx",
+                "reward": -1.249999944007758,
+                "creation_time": 1660469914.626412,
+                "auxillary_file_paths": [
+                    "results\\hb_01\\FlappyBird\\FlappyBird-6960313.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 6960313,
+            "file_path": "results\\hb_01\\FlappyBird.onnx",
+            "reward": -1.249999944007758,
+            "creation_time": 1660469914.626412,
+            "auxillary_file_paths": [
+                "results\\hb_01\\FlappyBird\\FlappyBird-6960313.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.12.1+cu116"
+    }
+}

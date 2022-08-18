@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelsList:
   - levelSpeed: 1
-    obstaclesCount: 2
+    obstaclesCount: 100
     obstaclesOffset: 1
-    restTime: 3
+    restTime: 15
     changeDirecrionChance: 0.1
   - levelSpeed: 2
-    obstaclesCount: 15
+    obstaclesCount: 150
     obstaclesOffset: 1
-    restTime: 4
+    restTime: 15
     changeDirecrionChance: 0.15
   - levelSpeed: 2
-    obstaclesCount: 2
+    obstaclesCount: 200
     obstaclesOffset: 0.5
-    restTime: 5
+    restTime: 0
     changeDirecrionChance: 0.3

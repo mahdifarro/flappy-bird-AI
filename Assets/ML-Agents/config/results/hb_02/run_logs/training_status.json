@@ -1,0 +1,56 @@
+{
+    "FlappyBird": {
+        "checkpoints": [
+            {
+                "steps": 38059,
+                "file_path": "results\\hb_02\\FlappyBird\\FlappyBird-38059.onnx",
+                "reward": -6.765432086991675,
+                "creation_time": 1660558054.0447743,
+                "auxillary_file_paths": [
+                    "results\\hb_02\\FlappyBird\\FlappyBird-38059.pt"
+                ]
+            },
+            {
+                "steps": 499980,
+                "file_path": "results\\hb_02\\FlappyBird\\FlappyBird-499980.onnx",
+                "reward": -2.2902298055846115,
+                "creation_time": 1660562659.2707758,
+                "auxillary_file_paths": [
+                    "results\\hb_02\\FlappyBird\\FlappyBird-499980.pt"
+                ]
+            },
+            {
+                "steps": 537288,
+                "file_path": "results\\hb_02\\FlappyBird\\FlappyBird-537288.onnx",
+                "reward": -2.1272726275704126,
+                "creation_time": 1660563127.2141461,
+                "auxillary_file_paths": [
+                    "results\\hb_02\\FlappyBird\\FlappyBird-537288.pt"
+                ]
+            },
+            {
+                "steps": 740661,
+                "file_path": "results\\hb_02\\FlappyBird\\FlappyBird-740661.onnx",
+                "reward": null,
+                "creation_time": 1660635944.002061,
+                "auxillary_file_paths": [
+                    "results\\hb_02\\FlappyBird\\FlappyBird-740661.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 740661,
+            "file_path": "results\\hb_02\\FlappyBird.onnx",
+            "reward": null,
+            "creation_time": 1660635944.002061,
+            "auxillary_file_paths": [
+                "results\\hb_02\\FlappyBird\\FlappyBird-740661.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.12.1+cu116"
+    }
+}
