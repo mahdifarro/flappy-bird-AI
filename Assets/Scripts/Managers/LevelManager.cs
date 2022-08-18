@@ -7,8 +7,14 @@ public class LevelManager : MonoBehaviour
 {
     public GameObject bird;
 
+    public Observer frontObserver;
+    public Observer backObserver;
+
+    [Tooltip("Finish Point of the pipes")]
     public Transform finishPoint;
+    [Tooltip("Highest point that pipe group can go")]
     public Transform upPoint;
+    [Tooltip("Lowest point that pipe group can go")]
     public Transform downPoint;
 
     public GameObject pipeCouplePrefab;
@@ -69,6 +75,12 @@ public class LevelManager : MonoBehaviour
         }
         levelIndex = 0;
         ObjectTweener.StopTweens();
+        foreach (Transform t in obstaclesPool.transform)
+        {
+            t.gameObject.SetActive(false);
+        }
+        frontObserver.pipesList.Clear();
+        backObserver.pipesList.Clear();
 
     }
 
@@ -88,6 +100,7 @@ public class LevelManager : MonoBehaviour
         for (int i= diff; i > 0; i--)
         {
             var obj=Instantiate(pipeCouplePrefab,obstaclesPool.transform);
+            obj.name = i + " Pipe";
             obstaclesList.Add(obj.transform);
             obj.SetActive(false);
         }
