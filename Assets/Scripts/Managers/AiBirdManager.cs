@@ -50,74 +50,99 @@ public class AiBirdManager : Agent
         GameObject[] pipesList=FindPipes();
 
         // Distance from first pipe
-        float firstPipeDistance_z;
+        float firstPipeDistance_x;
         // Distance from second pipe
-        float secondPipeDistance_z;
+        float secondPipeDistance_x;
         // Distance from back pipe
-        float backPipeDistance_z;
+        float backPipeDistance_x;
 
         if (pipesList[0] == null)
         {
-            firstPipeDistance_z = 20;
+            firstPipeDistance_x = 20;
         }
         else
         {
-            firstPipeDistance_z = transform.position.z - pipesList[0].transform.position.z;
+            firstPipeDistance_x = pipesList[0].transform.position.x;
         }
 
         if (pipesList[1] == null)
         {
 
-            secondPipeDistance_z = 20;
+            secondPipeDistance_x = 20;
         }
         else
         {
-            secondPipeDistance_z = transform.position.z - pipesList[1].transform.position.z;
+            secondPipeDistance_x = pipesList[1].transform.position.x;
         }
 
         if (pipesList[2] == null)
         {
-            backPipeDistance_z = 20;
+            backPipeDistance_x = 20;
         }
         else
         {
-            backPipeDistance_z = transform.position.z - pipesList[2].transform.position.z;
+            backPipeDistance_x = pipesList[2].transform.position.x;
         }
 
         // Observe the distance from first pipe in z axis (1 observation)
-        sensor.AddObservation(Mathf.Abs(firstPipeDistance_z));
+        sensor.AddObservation(firstPipeDistance_x);
         // Observe the distance from second pipe in z axis (1 observation)
-        sensor.AddObservation(Mathf.Abs(secondPipeDistance_z));
+        sensor.AddObservation(secondPipeDistance_x);
         // Observe the distance from back pipe in z axis (1 observation)
-        sensor.AddObservation(Mathf.Abs(backPipeDistance_z));
+        sensor.AddObservation(backPipeDistance_x);
 
         float upPipeDistance_y;
         float downPipeDistance_y;
         if (pipesList[0] != null)
         {
-            upPipeDistance_y = transform.position.y - pipesList[0].GetComponent<PipeManager>().upPipe.transform.position.y;
-            downPipeDistance_y = transform.position.y - pipesList[0].GetComponent<PipeManager>().downPipe.transform.position.y;
+            upPipeDistance_y = pipesList[0].GetComponent<PipeManager>().upPipe.transform.position.y;
+            downPipeDistance_y = pipesList[0].GetComponent<PipeManager>().downPipe.transform.position.y;
         }
         else
         {
             upPipeDistance_y = 10;
-            downPipeDistance_y = 10;
+            downPipeDistance_y = -10;
         }
+
         // Observe the distance from up pipe in y axis(1 observation)
-        sensor.AddObservation(Mathf.Abs(upPipeDistance_y));
+        sensor.AddObservation(upPipeDistance_y);
         // Observe the distance from down pipe in y axis(1 observation)
-        sensor.AddObservation(Mathf.Abs(downPipeDistance_y));
+        sensor.AddObservation(downPipeDistance_y);
 
-        // Observe distance from the ground (-2.65) (1 observations)
-        sensor.AddObservation(Mathf.Abs(transform.position.y - (-2.65f)));
+        float upBackPipeDistance_y;
+        float downBackPipeDistance_y;
+        if (pipesList[2] != null)
+        {
+            upBackPipeDistance_y = pipesList[2].GetComponent<PipeManager>().upPipe.transform.position.y;
+            downBackPipeDistance_y = pipesList[2].GetComponent<PipeManager>().downPipe.transform.position.y;
+        }
+        else
+        {
+            upBackPipeDistance_y = 10;
+            downBackPipeDistance_y = -10;
+        }
 
+        // Observe the distance from up back pipe in y axis(1 observation)
+        sensor.AddObservation(upBackPipeDistance_y);
+        // Observe the distance from down back pipe in y axis(1 observation)
+        sensor.AddObservation(downBackPipeDistance_y);
+
+        // Observe distance from the ground (-2.65) (1 observation)
+        sensor.AddObservation(transform.position.y - (-2.65f));
+
+        // Observe bird's velocity (1 observation)
+        sensor.AddObservation(bird_rb.velocity.y);
+
+        //string obsArray= "";
         //foreach (float obs in GetObservations())
         //{
-        //    Debug.Log(obs);
+        //    obsArray+=obs.ToString()+" ";
         //}
+        //Debug.Log(obsArray);
+
         //Debug.Log("END");
 
-        // totall 7 observations
+        // totall 11 observations
     }
 
     /// <summary>
