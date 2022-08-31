@@ -268,18 +268,22 @@ PrefabInstance:
     - target: {fileID: 3914635237301198580, guid: eb008835cf9e9fe4a942cefc28ece71e, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: fc40fb1005d5f2046bcd692678ea37ae, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: b137172a649bbe348aa0836a9865cce6, type: 3}
     - target: {fileID: 3914635237301198580, guid: eb008835cf9e9fe4a942cefc28ece71e, type: 3}
       propertyPath: m_BehaviorType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3914635237301198580, guid: eb008835cf9e9fe4a942cefc28ece71e, type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 7
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914635237301198580, guid: eb008835cf9e9fe4a942cefc28ece71e, type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3914635237301198581, guid: eb008835cf9e9fe4a942cefc28ece71e, type: 3}
       propertyPath: velocity
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb008835cf9e9fe4a942cefc28ece71e, type: 3}
