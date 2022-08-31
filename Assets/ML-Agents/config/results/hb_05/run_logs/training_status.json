@@ -1,0 +1,56 @@
+{
+    "FlappyBird": {
+        "checkpoints": [
+            {
+                "steps": 499882,
+                "file_path": "results\\hb_05\\FlappyBird\\FlappyBird-499882.onnx",
+                "reward": 92.16666340827942,
+                "creation_time": 1661865463.0592484,
+                "auxillary_file_paths": [
+                    "results\\hb_05\\FlappyBird\\FlappyBird-499882.pt"
+                ]
+            },
+            {
+                "steps": 849150,
+                "file_path": "results\\hb_05\\FlappyBird\\FlappyBird-849150.onnx",
+                "reward": 146.85184701283774,
+                "creation_time": 1661868228.0842757,
+                "auxillary_file_paths": [
+                    "results\\hb_05\\FlappyBird\\FlappyBird-849150.pt"
+                ]
+            },
+            {
+                "steps": 849150,
+                "file_path": "results\\hb_05\\FlappyBird\\FlappyBird-849150.onnx",
+                "reward": null,
+                "creation_time": 1661926205.911974,
+                "auxillary_file_paths": [
+                    "results\\hb_05\\FlappyBird\\FlappyBird-849150.pt"
+                ]
+            },
+            {
+                "steps": 851907,
+                "file_path": "results\\hb_05\\FlappyBird\\FlappyBird-851907.onnx",
+                "reward": -5.089285756860461,
+                "creation_time": 1661926313.2102995,
+                "auxillary_file_paths": [
+                    "results\\hb_05\\FlappyBird\\FlappyBird-851907.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 851907,
+            "file_path": "results\\hb_05\\FlappyBird.onnx",
+            "reward": -5.089285756860461,
+            "creation_time": 1661926313.2102995,
+            "auxillary_file_paths": [
+                "results\\hb_05\\FlappyBird\\FlappyBird-851907.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.12.1+cu116"
+    }
+}
