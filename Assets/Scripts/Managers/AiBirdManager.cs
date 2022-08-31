@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
+using Unity.MLAgents.Policies;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.ParticleSystem;
 
 public class AiBirdManager : Agent
@@ -26,6 +28,9 @@ public class AiBirdManager : Agent
     private bool isGameRunning = false;
 
     private int highScore=0;
+
+    public Text currentScoreText;
+    public Text HighScoreText;
     public override void Initialize()
     {
         MaxStep = 0;
@@ -235,16 +240,32 @@ public class AiBirdManager : Agent
     {
         if (objectTag == "Obstacle")
         {  
-            Debug.Log("Score: " + (int)GetCumulativeReward());
+            currentScoreText.text="Score: " + (int)GetCumulativeReward();
             if ((int)GetCumulativeReward() >= highScore)
             {
                 highScore= (int)GetCumulativeReward();
             }
-            Debug.Log("High Score: " + highScore);
+            HighScoreText.text="High Score: " + highScore;
 
             levelManager.StopGame();
             AddReward(-10);
             EndEpisode();
+        }
+    }
+
+    public void ChangeMode(Text buttonName)
+    {
+        if(gameObject.GetComponent<BehaviorParameters>().BehaviorType == BehaviorType.InferenceOnly)
+        {
+            buttonName.text = "Heuristic";
+            gameObject.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.HeuristicOnly;
+            velocity = 5;
+        }
+        else if(gameObject.GetComponent<BehaviorParameters>().BehaviorType == BehaviorType.HeuristicOnly)
+        {
+            buttonName.text = "Inference";
+            gameObject.GetComponent<BehaviorParameters>().BehaviorType = BehaviorType.InferenceOnly;
+            velocity = 2.5f;
         }
     }
 
