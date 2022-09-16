@@ -1,4 +1,4 @@
-# Flappy Bird Using Reinforcement Learning
+# Flappy Bird Using Reinforcement Learning in Unity
 ## Table of contents
 * [General info](#general-info)
 * [Requirements](#requirements)
