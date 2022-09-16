@@ -1,4 +1,4 @@
-# Flappy Bird Using Reinforcement Learning in Unity
+# Flappy Bird
 ## Table of contents
 * [General info](#general-info)
 * [Requirements](#requirements)
@@ -7,7 +7,7 @@
 * [Configuration](#configuration)
 
 ## General info
-This project allows you to train a AI agent that can play flappy bird. its current high score is 978, but it can improved even further.
+This project allows you to train a AI agent that can play flappy bird made with Unity. its current high score is 978, but it can improved even further.
 I've also created a level manager so oracle change have more difficult levels. You can change the level difficulty by accessing `Levels` file in `Data` folder
 
 ## Requirements
