@@ -70,12 +70,17 @@ there is a sudden drop after 550K epochs because I changed some of the yaml file
 
 ### Observers
 There are a totall of 10 observations:
-2. Distance from , second, and back pipes in z axis (3 observations)
-3. Distance from up and down pipes in y axis (2 observations)
-4. Distance from up and down back pipes in y axis (2 observations)
-5. Distance from the ground (-2.65) (1 observation)
-6. Bird's y velocity (1 observation)
-7. Speed of the curent level (1 observation)
+1. Distance from , second, and back pipes in z axis (3 observations)
+
+2. Distance from up and down pipes in y axis (2 observations)
+
+3. Distance from up and down back pipes in y axis (2 observations)
+
+4. Distance from the ground (-2.65) (1 observation)
+
+5. Bird's y velocity (1 observation)
+
+6. Speed of the curent level (1 observation)
 
 ### Actions
 There is just 1 action:
