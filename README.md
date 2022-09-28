@@ -1,4 +1,4 @@
-# Flappy Bird
+# Flappy Bird - Reinforcement learning Using the Unity ML-Agents
 ## Table of contents
 * [General info](#general-info)
 * [Requirements](#requirements)
